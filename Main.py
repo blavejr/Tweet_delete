@@ -9,10 +9,11 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 #setting up twitter bot authentication
-consumer_key = 'mRR4yCveKOe4Ns2vUhDCTzzHE'
-consumer_secret = 'HYZr9wBY59D8NuWEexXXx0Y6teWMZOBEeqE1OilMMzpkQiVEc2'
-access_token = '3183403662-0dNmdWX0xFUD7qahvlAp43vxiLvZkeQbqWpECI4'
-access_token_secret = 'n8GynaMJLhe04ZXU7Wo8jSjF6U5GMlK7qxjGA4UN4OKKv'
+#Add your keys here
+consumer_key = '###'
+consumer_secret = '###'
+access_token = '###'
+access_token_secret = '###'
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
@@ -22,8 +23,10 @@ api = tweepy.API(auth)
 
 '''a is a counter and b is kinda like the total tweets deleted'''
 def delete_old_tweets(a,b):
-    for status in api.user_timeline("BlaveKalahn"):#, max_id=657288237862539265): #655339716351430656
+    for status in api.user_timeline("BlaveKalahn"):#, max_id=657288237862539265): #max id is an optional parameter
+    #status from twitters api comes as an object
         if status.id != 661804492581507072:
+            #sometimes as I code listen to random songs, I tweet thier names and this little bit saves them in a text file.
             if status.text.startswith("#np"):
                 with open('Tweet_Songs.txt', 'a') as writter:
                     writter.writelines(status.text[4:])
