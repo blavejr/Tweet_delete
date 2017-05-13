@@ -1,4 +1,4 @@
-__author__ = 'Remigius'
+__author__ = 'Blave Kalahn'
 import tweepy
 import time
 import sys
